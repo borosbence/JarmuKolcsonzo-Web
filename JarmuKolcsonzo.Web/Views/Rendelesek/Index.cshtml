@@ -1,0 +1,59 @@
+﻿@model IEnumerable<JarmuKolcsonzo.Web.Models.rendeles>
+
+@{
+    ViewData["Title"] = "Járművek";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<p>
+    <a asp-action="Letrehozas">Új rendelés</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.datum)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.napok_szama)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ar)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.jarmu_id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ugyfel_id)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.datum)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.napok_szama)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ar)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.jarmu.rendszam)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ugyfel.TeljesNev)
+            </td>
+            <td>
+                <a asp-action="Szerkesztes" asp-route-id="@item.id">Szerkesztés</a> |
+                <a asp-action="Reszletek" asp-route-id="@item.id">Részletek</a> |
+                <a asp-action="Torles" asp-route-id="@item.id">Törlés</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

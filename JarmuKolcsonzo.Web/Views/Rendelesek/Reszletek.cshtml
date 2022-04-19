@@ -1,0 +1,48 @@
+﻿@model JarmuKolcsonzo.Web.Models.rendeles
+
+@{
+    ViewData["Title"] = "Részletek";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div>
+    <h4>Rendelés</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.datum)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.datum)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.napok_szama)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.napok_szama)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ar)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ar)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.jarmu)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.jarmu.rendszam)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ugyfel)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ugyfel.TeljesNev)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.id">Szerkesztés</a> |
+    <a asp-action="Index">Vissza a listához</a>
+</div>
